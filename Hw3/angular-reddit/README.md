@@ -1,3 +1,12 @@
+https://github.com/zdean1/mydist/tree/master/Hw3/angular-reddit
+
+I didnt realize this repo was tied to a previous one I made for Hw2. 
+
+I added the ability for new articles to be submitted with a role and if the role is 'administrator', the flag button will appear with the article.
+The flag service has a bug in it and does not run.
+
+
+
 # AngularReddit
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
