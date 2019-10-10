@@ -8,6 +8,7 @@ import { Article } from './article/article.model';
 })
 export class AppComponent {
   articles: Article[];
+  article: Article;
 
   constructor() {
     this.articles = [
@@ -16,15 +17,22 @@ export class AppComponent {
       new Article('Angular Homepage', 'http://angular.io', "user", 1)
     ];
   }
-  addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
+  addArticle(title: HTMLInputElement, link: HTMLInputElement, role: HTMLInputElement): boolean {
     console.log(`Adding article title: ${title.value} and link: ${link.value}`);
-    this.articles.push(new Article(title.value, link.value, '', 0));
+    this.articles.push(new Article(title.value, link.value, role.value.toLowerCase(), 0));
+    console.log(this.articles);
     title.value = '';
     link.value = '';
+    role.value = '';
     return false;
   }
 
   sortedArticles(): Article[] {
     return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
   }
+
+  getArticles(): Article[] {
+    return this.articles;
+  }
+
 }

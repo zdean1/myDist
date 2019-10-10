@@ -1,16 +1,19 @@
 import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import { Article } from './article.model';
+import { FlagArticleServiceService } from '../flag-article-service.service';
+
+
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css']
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent {
   @HostBinding('attr.class') cssClass = 'row';
   @Input() article: Article;
 
-  constructor() {
+  constructor(private _flagarticle: FlagArticleServiceService) {
 
    }
 
@@ -24,7 +27,11 @@ export class ArticleComponent implements OnInit {
      return false;
    }
 
-  ngOnInit() {
-  }
+   flagArticle(): boolean {
+     this._flagarticle.flag(this.article);
+          return false;
+   }
+
+   ngOnInit() { }
 
 }
